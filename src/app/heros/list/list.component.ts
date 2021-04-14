@@ -11,10 +11,6 @@ export class ListComponent {
   deletedHero: string = '';
 
   deleteHero() {
-    // const deletedHero = this.heros.pop();
-    // this.deletedHeros.push(deletedHero);
-
-    // Otra forma
     this.deletedHero = this.heros.shift() ||undefined;
   }
 

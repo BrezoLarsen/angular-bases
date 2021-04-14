@@ -1,9 +1,12 @@
-<div>
-  <p>Héroe borrado: {{deletedHero}}</p>
-  <!-- <ul>
-    <li *ngFor="let hero of deletedHeros; let i = index">{{i + 1}} - {{hero}}</li>
-  </ul> -->
+<div *ngIf="deletedHero; else noDeletedHero">
+  <p>Héroe borrado: <small>{{deletedHero}}</small></p>
 </div>
+
+<ng-template #noDeletedHero>
+  <!-- #noDoletedHero es una referencia local que no existe en el TS -->
+  <h3>No hay ningún héroe borrado</h3>
+</ng-template>
+
 
 
 <p>Listado de heroes</p>
