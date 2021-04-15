@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Character } from '../interfaces/dbz.interfaces';
+import { DbzService } from '../services/dbz.service';
 
 @Component({
   selector: 'app-add',
@@ -12,12 +13,17 @@ export class AddComponent {
     power: 0
   }
 
-  @Output() onNewCharacter: EventEmitter<Character> = new EventEmitter();
+  // @Output() onNewCharacter: EventEmitter<Character> = new EventEmitter();
+
+  constructor(private dbzService: DbzService) {}
 
   add() {
     if (this.new.name.trim().length === 0) { return; }
+    // debugger; <- detiene Chrome cuando llega aquí
 
-    this.onNewCharacter.emit( this.new );
+    // this.onNewCharacter.emit( this.new );
+
+    this.dbzService.addCharacter(this.new);
 
     this.new = {
       name: '',
